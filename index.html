@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IA na prática — material da aula</title>
+<meta name="description" content="Resumo, links para continuar aprendendo, glossário e todas as fontes da palestra Inteligência Artificial. Na prática., de Daniel Nabarrete (8º e 9º ano, 22/10/2026).">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#141416" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f6f8" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23141416'/%3E%3Crect x='7' y='7' width='8' height='8' rx='2' fill='%238e6cff'/%3E%3Crect x='17' y='17' width='8' height='8' rx='2' fill='%238e6cff'/%3E%3Crect x='17' y='7' width='8' height='8' rx='2' fill='%23303036'/%3E%3Crect x='7' y='17' width='8' height='8' rx='2' fill='%23303036'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  Página estática do QR code do último slide (deck/slides/fim.tsx → MATERIAL_URL em deck/config.ts).
+  Regras: sem trackers, sem analytics, sem formulários, sem recursos externos (fontes ficam em fonts/).
+  Para editar: este arquivo + style.css. Capturas dos slides vão em slides/<id-do-slide>.png.
+-->
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="pixels" aria-hidden="true">
+      <i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i></i>
+      <i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i>
+    </div>
+    <p class="kicker">Material da aula</p>
+    <h1>Inteligência Artificial.<br><em>Na prática.</em></h1>
+    <p class="sub">O resumo da palestra, os links pra continuar e todas as fontes do que foi dito.</p>
+    <ul class="meta">
+      <li><strong>Daniel Nabarrete</strong></li>
+      <li>8º e 9º ano</li>
+      <li><time datetime="2026-10-22">22 de outubro de 2026</time></li>
+    </ul>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Seções da página">
+  <ul>
+    <li><a href="#resumo">Resumo</a></li>
+    <li><a href="#construimos">O que construímos</a></li>
+    <li><a href="#slides">Slides</a></li>
+    <li><a href="#continuar">Continuar aprendendo</a></li>
+    <li><a href="#glossario">Glossário</a></li>
+    <li><a href="#fontes">Fontes</a></li>
+  </ul>
+</nav>
+
+<main id="conteudo" class="wrap">
+
+<!-- ═════════════ RESUMO (mesma ordem de deck/slides/index.ts) ═════════════ -->
+<section class="block" id="resumo" aria-labelledby="t-resumo">
+  <p class="kicker">O que a gente viu</p>
+  <h2 id="t-resumo">Resumo da <em>aula</em></h2>
+  <p class="lead">Do jeito que foi na palestra, parte por parte.</p>
+
+  <article class="card">
+    <div class="part"><span class="num">00</span><h3>Vocês já usam IA</h3></div>
+    <ul class="points">
+      <li><b>65%</b> dos brasileiros de 9 a 17 anos já usam IA generativa, e 59% usam pra estudar (pesquisa TIC Kids Online Brasil 2025).</li>
+      <li>E quem acha que não usa, usa sem perceber: o <b>feed</b> que aprende do que você gosta, o <b>teclado</b> que sugere a próxima palavra, a <b>câmera</b> que melhora a foto, o <b>desbloqueio pelo rosto</b>, o <b>mapa</b> que prevê o trânsito.</li>
+      <li>Até no futebol: no Brasileirão 2026, câmeras + IA ajudam a marcar o <b>impedimento</b> em segundos (quem decide ainda é o árbitro).</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <div class="part"><span class="num">01</span><h3>O que é IA, de verdade</h3></div>
+    <ul class="points">
+      <li><b>Não é de agora:</b> 1950 Turing pergunta se máquinas podem pensar · 1997 Deep Blue vence no xadrez · 2012 redes neurais aprendem a reconhecer imagens · 2016 AlphaGo vence no Go · 2017 nasce o Transformer · 2022 ChatGPT · 2026 agentes.</li>
+      <li><b>IA não é só o ChatGPT.</b> IA é o guarda-chuva; dentro dela vem o <b>machine learning</b> (aprende com exemplos), dentro dele o <b>deep learning</b> (redes neurais com muitas camadas) e, lá no meio, a <b>IA generativa</b> (cria texto, imagem, som, código).</li>
+      <li><b>Regras × exemplos:</b> um programa comum segue uma receita escrita por alguém. No machine learning ninguém escreve a regra: a máquina vê milhões de exemplos e descobre o padrão.</li>
+      <li><b>Como uma rede aprende:</b> chuta → erra → ajusta um pouquinho → repete milhões de vezes.</li>
+      <li><b>Pra máquina, tudo vira número:</b> cada letra tem um número, e cada número vira bits (0 e 1).</li>
+      <li><b>Parâmetros</b> são os "botões" ajustados no treino: o GPT-3 (2020) tinha 175 bilhões; o DeepSeek V4 Pro (2026), 1,6 trilhão.</li>
+      <li><b>Treino × uso:</b> treinar leva meses, com trilhões de pedaços de texto e milhares de GPUs. Responder leva segundos, e uma pergunta gasta pouca energia (≈0,24 Wh, segundo o Google). O impacto vem da escala: bilhões de perguntas por dia.</li>
+    </ul>
+    <p class="quote">"A gente não programa a resposta. A gente programa o jeito de aprender."</p>
+  </article>
+
+  <article class="card">
+    <div class="part"><span class="num">02</span><h3>Como um LLM pensa</h3></div>
+    <ul class="points">
+      <li><b>Próxima palavra:</b> ChatGPT, Claude e Gemini escolhem a próxima palavra mais provável, de novo e de novo. É o autocompletar do teclado, só que treinado com quase toda a internet.</li>
+      <li><b>Tokens:</b> a IA lê em pedacinhos de palavra, e cada pedaço vira um número.</li>
+      <li><b>Embeddings:</b> cada palavra vira um ponto num "mapa de significado", e palavras parecidas ficam perto. Dá até pra fazer conta: rei − homem + mulher ≈ rainha.</li>
+      <li><b>Atenção</b> (o "T" do GPT): cada palavra "olha" pras outras pra entender o contexto, tipo descobrir se "ele" é o cachorro ou a rua.</li>
+      <li><b>Três fases de escola:</b> ler a internet (pré-treino) → treinar pergunta e resposta → pessoas avaliam as respostas (RLHF).</li>
+      <li><b>Alucinação:</b> a IA sabe o que é <em>provável</em>, não o que é <em>verdade</em>. Ex.: nenhum brasileiro pisou na Lua; Marcos Pontes foi à Estação Espacial Internacional (≈400 km da Terra), não à Lua (≈384 mil km).</li>
+      <li><b>Imagens:</b> geradores de imagem começam com ruído e vão "limpando" na direção do pedido (modelos de difusão).</li>
+      <li><b>Humano ou IA?</b> Muitas vezes não dá pra saber só olhando. Por isso, desconfiar é importante.</li>
+      <li><b>Quem faz:</b> não existe uma IA só. ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Meta AI, Grok, Le Chat (Mistral, França), DeepSeek (China)… e a NVIDIA faz os chips onde quase tudo roda. O Brasil é um dos 3 maiores mercados do ChatGPT.</li>
+      <li><b>Chat × agente:</b> o chat responde; o agente <em>faz</em>. Recebe um objetivo e trabalha em ciclo: planeja, usa ferramentas, testa e corrige.</li>
+    </ul>
+    <p class="quote">Regra de ouro: confere em 2 fontes.</p>
+  </article>
+
+  <article class="card">
+    <div class="part"><span class="num">03</span><h3>Mão na massa</h3></div>
+    <ul class="points">
+      <li><b>Meu jogo no Roblox</b> foi feito com <b>vibe coding</b>: descrevi a ideia em português, a IA escreveu o código (Luau), eu testei, achei os bugs e pedi os ajustes. Repeti muitas vezes.</li>
+      <li>Jogos gigantes do Roblox começaram pequenos: o Grow a Garden, segundo relatos, foi criado por um adolescente.</li>
+      <li><b>Construção ao vivo (10 minutos):</b> vocês votaram e ditaram o que construir; o agente (Claude Code) escreveu o código na hora. Regras: vocês decidem, nada de nome de pessoa real, e se der erro, ótimo: a gente vê a IA errar e consertar.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <div class="part"><span class="num">04</span><h3>E o futuro?</h3></div>
+    <ul class="points">
+      <li><b>Surpresa:</b> trabalho de escritório é mais afetado pela IA do que trabalho manual (escritório 46%, jurídico 44%… limpeza 1%, segundo a Goldman Sachs, EUA, 2023).</li>
+      <li><b>Afetada não é extinta:</b> a profissão continua; muda o jeito de trabalhar. Quem souber usar IA faz o trabalho de antes, e mais.</li>
+      <li><b>Até 2030</b> (Fórum Econômico Mundial): 170 milhões de empregos novos, 92 milhões que deixam de existir. Saldo positivo, mas são empregos diferentes, e 39% das habilidades pedidas vão mudar.</li>
+      <li><b>Sobe:</b> big data, fintech, IA, apps, cibersegurança. <b>Desce:</b> tarefas repetitivas, como caixa de banco, carteiro e digitador.</li>
+      <li><b>O que se pede agora:</b> pensamento analítico, criatividade, curiosidade, saber usar IA e dados, se adaptar rápido.</li>
+      <li><b>Como começar:</b> (1) use a IA como professor, não pra fazer por você; (2) <b>aprenda inglês</b>; (3) construa algo pequeno: um site, um jogo, um bot.</li>
+      <li><b>Por que inglês?</b> Uns 50% dos sites do mundo estão em inglês (português, perto de 4%); toda linguagem de programação usa palavras em inglês; e quase tudo de novo sai primeiro em inglês. Dica: muda o idioma do celular e dos jogos.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <div class="part"><span class="num">05</span><h3>Usar com responsabilidade</h3></div>
+    <ul class="points">
+      <li><b>Montagem de alguém é crime.</b> Deepfake de colega não é zoeira: destrói a vida da pessoa. A lei brasileira pune, e adolescente responde pelo ECA.</li>
+      <li><b>Professor, não dublê.</b> Use pra entender e treinar. Se você não sabe explicar o que entregou, não é seu.</li>
+      <li><b>Confere em 2 fontes.</b> A IA erra com confiança.</li>
+      <li><b>Seus dados são seus.</b> Não mande foto, endereço ou senha. E respeite a idade mínima de cada app: o ChatGPT pede 13+ com autorização dos responsáveis; o Claude é só pra maiores de 18. Use o que a escola liberar.</li>
+    </ul>
+    <p class="quote">Aconteceu com você ou com alguém? Não compartilhe, guarde as provas e conte pra um adulto de confiança. Ajuda e denúncia: <a href="https://new.safernet.org.br/">SaferNet Brasil</a>. Se quiser conversar com alguém agora: CVV, telefone 188 (grátis, 24 h).</p>
+  </article>
+
+  <article class="card hl">
+    <div class="part"><span class="num" style="color:inherit">06</span><h3>O segredo</h3></div>
+    <p style="margin:0">O vídeo de abertura, a apresentação, meu jogo no Roblox, o que construímos ao vivo e esta página: <b>tudo foi feito com IA</b>. Mas a ideia, o gosto e as decisões foram de uma pessoa.</p>
+    <p class="quote" style="background:rgba(0,0,0,.18);border-color:rgba(255,255,255,.3)">Feito com IA. Dirigido por um humano. A IA é o motor; vocês são os pilotos.</p>
+  </article>
+
+  <article class="card">
+    <div class="part"><span class="num">07</span><h3>O universo da IA</h3></div>
+    <ul class="points">
+      <li><b>Hoje vimos a ponta do iceberg.</b> Embaixo d'água tem: agentes e automações, RAG, embeddings, fine-tuning, modelos que rodam no celular, robótica, carros autônomos, IA na ciência, chips e data centers, segurança, leis e ética. Cada um é uma profissão inteira.</li>
+      <li><b>Parece ficção, mas já existe:</b> o AlphaFold, que prevê o formato das proteínas, ganhou o Nobel de Química de 2024; pesquisas estimam a posição de pessoas usando sinais de Wi-Fi e rádio; robotáxis sem motorista já circulam em cidades dos EUA; pesquisadores transformaram atividade do cérebro em frases (com a pessoa colaborando); IAs pequenas rodam sem internet; e agentes já usam o computador sozinhos.</li>
+    </ul>
+  </article>
+</section>
+
+<!-- ═════════════ CONSTRUÇÃO AO VIVO — preencher depois da aula ═════════════ -->
+<section class="block" id="construimos" aria-labelledby="t-construimos">
+  <p class="kicker">Construção ao vivo</p>
+  <h2 id="t-construimos">O que a gente <em>construiu</em></h2>
+  <!--
+    DANIEL: depois da aula, troque o card abaixo por:
+    - o que a turma escolheu (site / jogo / chatbot / Roblox) e os pedidos principais;
+    - link para abrir/jogar (ex.: construido/index.html nesta mesma pasta) e, se quiser, o código;
+    - sem nome, foto ou voz de alunos e professores.
+  -->
+  <div class="card pending">
+    <p style="margin:0">Em breve: o link pra abrir o que a turma pediu e o agente construiu ao vivo.</p>
+  </div>
+</section>
+
+<!-- ═════════════ SLIDES — capturas em slides/<id>.png (1920×1080) ═════════════ -->
+<section class="block" id="slides" aria-labelledby="t-slides">
+  <p class="kicker">Slides</p>
+  <h2 id="t-slides">Os slides que <em>fecham</em> cada parte</h2>
+  <p class="lead">Pra lembrar do que foi visto.</p>
+  <div class="slides">
+    <figure class="slide"><div class="frame"><img src="slides/todo-dia.png" alt="Slide 'Todo dia. Sem perceber.': feed, teclado, câmera, rosto, mapa e futebol como exemplos de IA no dia a dia." loading="lazy" width="1920" height="1080"></div><figcaption>Vocês já usam IA<span>todo-dia</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/treino-uso.png" alt="Slide 'Aprender demora. Responder, não.': treino, uso e por que a IA usa GPU." loading="lazy" width="1920" height="1080"></div><figcaption>O que é IA, de verdade<span>treino-uso</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/humano-texto.png" alt="Slide 'Humano ou IA? Rodada 1': dois poemas, um de Olavo Bilac (1888) e um escrito por IA." loading="lazy" width="1920" height="1080"></div><figcaption>Como um LLM pensa<span>humano-texto</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/chat-agente.png" alt="Slide 'O chat responde. O agente faz.': o ciclo de um agente, de objetivo a correção." loading="lazy" width="1920" height="1080"></div><figcaption>Quem faz e o que muda<span>chat-agente</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/regras.png" alt="Slide 'Vocês pedem. A IA constrói.': regras da construção ao vivo." loading="lazy" width="1920" height="1080"></div><figcaption>Mão na massa<span>regras</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/comecar.png" alt="Slide 'Três passos. Dá pra começar hoje.': IA como professor, aprender inglês, construir algo pequeno." loading="lazy" width="1920" height="1080"></div><figcaption>E o futuro?<span>comecar</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/ingles.png" alt="Slide 'Aprenda inglês': por que o inglês importa na internet e na programação." loading="lazy" width="1920" height="1080"></div><figcaption>Aprenda inglês<span>ingles</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/responsa.png" alt="Slide 'Poder grande. Regras simples.': quatro regras para usar IA com responsabilidade." loading="lazy" width="1920" height="1080"></div><figcaption>Usar com responsabilidade<span>responsa</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/plot-twist.png" alt="Slide 'Feito com IA. Dirigido por um humano.'" loading="lazy" width="1920" height="1080"></div><figcaption>O segredo<span>plot-twist</span></figcaption></figure>
+    <figure class="slide"><div class="frame"><img src="slides/explorar.png" alt="Slide 'Comece por aqui': recursos gratuitos para continuar aprendendo." loading="lazy" width="1920" height="1080"></div><figcaption>O universo da IA<span>explorar</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- ═════════════ CONTINUAR APRENDENDO (grátis, sem conta 18+) ═════════════ -->
+<section class="block" id="continuar" aria-labelledby="t-continuar">
+  <p class="kicker">Quer ir mais fundo?</p>
+  <h2 id="t-continuar">Pra continuar <em>aprendendo</em></h2>
+  <p class="lead">Tudo gratuito. A maioria funciona sem criar conta. Se algum pedir cadastro, só com seus responsáveis sabendo, e respeitando a idade mínima de cada site.</p>
+  <div class="res">
+    <div class="card hl">
+      <div class="top"><span class="what">Brincar</span><span class="tag">sem conta</span></div>
+      <h3><a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a></h3>
+      <p>Treine uma IA com a câmera do computador pra reconhecer gestos ou objetos. Tudo roda no navegador, sem programar.</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Brincar</span><span class="tag">sem conta</span></div>
+      <h3><a href="https://quickdraw.withgoogle.com/">Quick, Draw!</a></h3>
+      <p>Você desenha e uma rede neural tenta adivinhar o que é, em 20 segundos. Dá pra ver como ela "pensa".</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Brincar</span><span class="tag">português</span></div>
+      <h3><a href="https://code.org/oceans">IA para Oceanos (Code.org)</a></h3>
+      <p>Você treina uma IA pra separar peixe de lixo no mar e vê na prática como os exemplos mudam o resultado.</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Assistir</span><span class="tag">legendas em PT</span></div>
+      <h3><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">3Blue1Brown: redes neurais</a></h3>
+      <p>A melhor explicação em vídeo de como uma rede neural aprende, e de como funcionam LLMs e atenção.</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Programar</span><span class="tag">português</span></div>
+      <h3><a href="https://www.cursoemvideo.com/">Curso em Vídeo</a></h3>
+      <p>Lógica de programação e Python do zero, com o Gustavo Guanabara. As aulas também estão no YouTube.</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Programar</span><span class="tag">português</span></div>
+      <h3><a href="https://scratch.mit.edu/">Scratch</a></h3>
+      <p>Do MIT. Monte jogos e animações com blocos, sem digitar código. Ótimo pra treinar lógica.</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Competir</span><span class="tag">grátis</span></div>
+      <h3><a href="https://olimpiada.ic.unicamp.br/">OBI: Olimpíada Brasileira de Informática</a></h3>
+      <p>Tem a modalidade Iniciação, só com lógica e sem precisar programar, e a Programação Júnior. A inscrição é feita pela escola: fale com seu professor.</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Aprender a usar</span><span class="tag">português</span></div>
+      <h3><a href="https://academy.openai.com/">OpenAI Academy</a></h3>
+      <p>Guias gratuitos da OpenAI, do básico ao uso responsável. Algumas partes pedem conta; o ChatGPT exige 13 anos ou mais e autorização dos responsáveis.</p>
+    </div>
+    <div class="card">
+      <div class="top"><span class="what">Se proteger</span><span class="tag">português</span></div>
+      <h3><a href="https://new.safernet.org.br/">SaferNet Brasil</a></h3>
+      <p>Pra denunciar e pedir ajuda em casos de deepfake, golpe, vazamento ou violência na internet.</p>
+    </div>
+  </div>
+  <p class="note">Sobre idade: o Claude, que usei na aula, é só para maiores de 18 anos. Os cursos da Anthropic Academy são abertos, mas pedem cadastro, então não estão nesta lista.</p>
+</section>
+
+<!-- ═════════════ GLOSSÁRIO (gerado de deck/glossario.json) ═════════════ -->
+<section class="block" id="glossario" aria-labelledby="t-glossario">
+  <p class="kicker">Siglas e termos</p>
+  <h2 id="t-glossario"><em>Glossário</em></h2>
+  <p class="lead">As palavras que apareceram na aula, em uma frase cada.</p>
+  <dl class="glossary">
+    <div><dt>IA / AI<small>Inteligência Artificial / Artificial Intelligence</small></dt><dd>Máquinas fazendo tarefas que pareciam exigir inteligência humana.</dd></div>
+    <div><dt>ML<small>Machine Learning (aprendizado de máquina)</small></dt><dd>A máquina aprende padrões com exemplos, em vez de regras escritas à mão.</dd></div>
+    <div><dt>DL<small>Deep Learning (aprendizado profundo)</small></dt><dd>Machine learning com redes neurais de muitas camadas.</dd></div>
+    <div><dt>Rede neural</dt><dd>Camadas de 'neurônios' de mentira (contas) ligados por pesos; inspirada no cérebro, mas bem diferente dele.</dd></div>
+    <div><dt>LLM<small>Large Language Model (modelo de linguagem grande)</small></dt><dd>Modelo treinado com trilhões de palavras para prever o próximo token. Ex.: GPT, Claude, Gemini.</dd></div>
+    <div><dt>SLM<small>Small Language Model (modelo de linguagem pequeno)</small></dt><dd>LLM menor, que roda no notebook ou no celular, até sem internet.</dd></div>
+    <div><dt>GPT<small>Generative Pre-trained Transformer</small></dt><dd>Gerador · Pré-treinado · Transformer. A família de modelos da OpenAI (o 'GPT' do ChatGPT).</dd></div>
+    <div><dt>Transformer</dt><dd>Arquitetura de rede neural criada pelo Google em 2017, base de quase todos os LLMs. O segredo é a 'atenção'.</dd></div>
+    <div><dt>Atenção<small>Attention</small></dt><dd>Mecanismo em que cada palavra 'olha' para as outras para entender o contexto.</dd></div>
+    <div><dt>Token</dt><dd>Pedaço de palavra que o modelo lê/escreve. ~100 tokens ≈ 75 palavras em inglês.</dd></div>
+    <div><dt>Parâmetro / peso<small>Parameter / weight</small></dt><dd>Cada número ajustável do modelo — os 'botões da mesa de som'. Modelos atuais têm de bilhões a trilhões.</dd></div>
+    <div><dt>Embedding</dt><dd>Lista de números que representa o significado de uma palavra — uma coordenada num 'mapa de sentido'.</dd></div>
+    <div><dt>Prompt</dt><dd>O pedido/instrução que você escreve para a IA.</dd></div>
+    <div><dt>Treino<small>Training</small></dt><dd>Fase em que o modelo aprende ajustando os parâmetros. Leva meses e milhares de GPUs.</dd></div>
+    <div><dt>Inferência<small>Inference</small></dt><dd>O uso do modelo já treinado: você pergunta, ele responde.</dd></div>
+    <div><dt>Fine-tuning<small>Ajuste fino</small></dt><dd>Treinar um pouco mais um modelo pronto para especializá-lo em algo.</dd></div>
+    <div><dt>RLHF<small>Reinforcement Learning from Human Feedback</small></dt><dd>Aprendizado por reforço com feedback humano: pessoas avaliam respostas e o modelo aprende o que é 'bom'.</dd></div>
+    <div><dt>Aprendizado por reforço<small>Reinforcement Learning (RL)</small></dt><dd>A IA aprende por tentativa e erro, ganhando 'pontos' — como num jogo. Ex.: AlphaGo.</dd></div>
+    <div><dt>Alucinação<small>Hallucination</small></dt><dd>Quando a IA inventa algo com confiança (datas, fontes, fatos).</dd></div>
+    <div><dt>RAG<small>Retrieval-Augmented Generation</small></dt><dd>A IA consulta documentos/buscas antes de responder, para errar menos.</dd></div>
+    <div><dt>Agente<small>AI agent</small></dt><dd>IA que recebe um objetivo e age sozinha em ciclo: planeja, usa ferramentas, testa e corrige.</dd></div>
+    <div><dt>MCP<small>Model Context Protocol</small></dt><dd>Padrão aberto (criado pela Anthropic) para conectar IAs a ferramentas e programas — tipo um 'USB' da IA. Foi assim que liguei o Claude ao Roblox.</dd></div>
+    <div><dt>API<small>Application Programming Interface</small></dt><dd>Jeito de um programa conversar com outro. Apps usam a API da OpenAI/Anthropic para ter IA.</dd></div>
+    <div><dt>Vibe coding</dt><dd>Programar descrevendo em linguagem natural o que você quer e deixando a IA escrever o código; você testa e ajusta.</dd></div>
+    <div><dt>Multimodal</dt><dd>Modelo que entende/gera mais de um tipo: texto, imagem, áudio, vídeo.</dd></div>
+    <div><dt>Difusão<small>Diffusion model</small></dt><dd>Tipo de modelo que gera imagens tirando o ruído aos poucos. Ex.: Midjourney, DALL·E, Imagen.</dd></div>
+    <div><dt>Visão computacional<small>Computer vision</small></dt><dd>IA que entende imagens e vídeos: rostos, objetos, placas.</dd></div>
+    <div><dt>NLP / PLN<small>Natural Language Processing / Processamento de Linguagem Natural</small></dt><dd>Área da IA que lida com linguagem humana.</dd></div>
+    <div><dt>AGI<small>Artificial General Intelligence</small></dt><dd>IA que faria qualquer tarefa intelectual tão bem quanto um humano. Ainda não existe; ninguém concorda quando (ou se) virá.</dd></div>
+    <div><dt>ASI<small>Artificial Superintelligence</small></dt><dd>IA hipotética muito mais inteligente que qualquer humano. Especulação.</dd></div>
+    <div><dt>Open source / open weights<small>Código aberto / pesos abertos</small></dt><dd>Modelos cujos pesos podem ser baixados e usados por qualquer um. Ex.: DeepSeek, Mistral, Qwen.</dd></div>
+    <div><dt>MoE<small>Mixture of Experts</small></dt><dd>Modelo dividido em 'especialistas'; só uma parte trabalha em cada palavra. Ex.: DeepSeek V4 (1,6 tri de parâmetros, ~49 bi ativos).</dd></div>
+    <div><dt>GPU<small>Graphics Processing Unit (placa de vídeo)</small></dt><dd>Chip que faz milhares de contas em paralelo; nasceu para games e virou o motor da IA.</dd></div>
+    <div><dt>CPU<small>Central Processing Unit</small></dt><dd>O processador 'comum' do computador: faz poucas contas por vez, muito rápido.</dd></div>
+    <div><dt>TPU / NPU<small>Tensor / Neural Processing Unit</small></dt><dd>Chips feitos só para IA (TPU do Google; NPU nos celulares e notebooks novos).</dd></div>
+    <div><dt>Data center</dt><dd>Galpão com milhares de servidores e GPUs onde as IAs são treinadas e rodam.</dd></div>
+    <div><dt>Deepfake</dt><dd>Vídeo, foto ou voz falsos gerados por IA imitando uma pessoa real. Usar para humilhar alguém é crime.</dd></div>
+    <div><dt>Luau</dt><dd>Linguagem de programação do Roblox (derivada do Lua).</dd></div>
+    <div><dt>IDE<small>Integrated Development Environment</small></dt><dd>Programa para escrever código (VS Code, Roblox Studio…).</dd></div>
+    <div><dt>Claude Code</dt><dd>O agente de programação da Anthropic que usei ao vivo: lê, escreve e testa código no computador.</dd></div>
+    <div><dt>OBI<small>Olimpíada Brasileira de Informática</small></dt><dd>Gratuita, tem nível sem programar (iniciação) e nível júnior para o fundamental.</dd></div>
+    <div><dt>LGPD<small>Lei Geral de Proteção de Dados</small></dt><dd>Lei brasileira de proteção de dados pessoais; dados de menores têm proteção reforçada.</dd></div>
+    <div><dt>ECA Digital<small>Lei 15.211/2025</small></dt><dd>Regras para apps, redes e jogos usados por menores (em vigor desde mar/2026).</dd></div>
+    <div><dt>SaferNet</dt><dd>ONG brasileira de denúncia e ajuda em crimes e violências na internet.</dd></div>
+  </dl>
+</section>
+
+<!-- ═════════════ FONTES ═════════════ -->
+<section class="block" id="fontes" aria-labelledby="t-fontes">
+  <p class="kicker">De onde veio cada número</p>
+  <h2 id="t-fontes">Todas as <em>fontes</em></h2>
+  <p class="lead">Separadas por parte da aula. Links conferidos em 20/10/2026. Lembrete: confere em 2 fontes. Vale pra mim também.</p>
+
+  <details class="src" open>
+    <summary>Vocês já usam IA <span class="count">6</span></summary>
+    <ul class="srclist">
+      <li><a href="https://www.cetic.br/media/docs/publicacoes/2/pt-br/20260317181001/tic_kids_online_2025_resumo_executivo.pdf.pdf">TIC Kids Online Brasil 2025: resumo executivo (PDF)</a><span class="by">Cetic.br / NIC.br · dados divulgados em out/2025</span><span class="why">65% de 9 a 17 anos usam IA generativa; 59% usam pra estudar.</span></li>
+      <li><a href="https://tecnoblog.net/noticias/65-das-criancas-e-adolescentes-brasileiros-usam-ia-revela-estudo/">65% das crianças e adolescentes brasileiros já utilizam IA, revela estudo</a><span class="by">Tecnoblog · out/2025</span></li>
+      <li><a href="https://www.mobiletime.com.br/noticias/22/10/2025/tic-kids-ia-generativa/">TIC Kids: 65% de crianças e adolescentes usam IA generativa</a><span class="by">Mobile Time · 22/10/2025</span></li>
+      <li><a href="https://www.correiodamanha.com.br/esporte/esportes/2026/07/303946-impedimento-semiautomatico-entrara-em-vigor-no-brasileirao-nesta-semana.html">Impedimento semiautomático entrará em vigor no Brasileirão nesta semana</a><span class="by">Correio da Manhã · 22/07/2026</span><span class="why">Impedimento semiautomático no Brasileirão 2026, com até 32 câmeras por estádio.</span></li>
+      <li><a href="https://www.goal.com/br/listas/impedimento-semiautomatico-brasileirao-2026-funcionar-nova-tecnologia-cbf/bltb9bf7c8ca200aaa8">Impedimento semiautomático no Brasileirão 2026: como vai funcionar a nova tecnologia da CBF</a><span class="by">Goal Brasil · 20/02/2026</span></li>
+      <li><a href="https://www.tupi.fm/esportes/impedimento-semiautomatico-no-brasileirao-cbf-bate-o-martelo-sobre-data/">Impedimento semiautomático no Brasileirão: CBF bate o martelo sobre data</a><span class="by">Super Rádio Tupi · 2026</span></li>
+    </ul>
+  </details>
+
+  <details class="src">
+    <summary>O que é IA, de verdade <span class="count">12</span></summary>
+    <ul class="srclist">
+      <li><a href="https://academic.oup.com/mind/article/LIX/236/433/986238">Computing Machinery and Intelligence</a><span class="by">Alan Turing · revista Mind (Oxford Academic) · 1950</span><span class="why">"Máquinas podem pensar?"</span></li>
+      <li><a href="https://www.ibm.com/history/deep-blue">Deep Blue</a><span class="by">IBM · página histórica · partida de 1997</span></li>
+      <li><a href="https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html">ImageNet Classification with Deep Convolutional Neural Networks (AlexNet)</a><span class="by">Krizhevsky, Sutskever e Hinton · NeurIPS · 2012</span></li>
+      <li><a href="https://deepmind.google/research/alphago/">AlphaGo</a><span class="by">Google DeepMind · partida de 2016</span></li>
+      <li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a><span class="by">Vaswani et al. (Google) · arXiv · 2017</span><span class="why">O artigo do Transformer, o "T" do GPT.</span></li>
+      <li><a href="https://www.theguardian.com/technology/2023/feb/02/chatgpt-100-million-users-open-ai-fastest-growing-app">ChatGPT reaches 100 million users two months after launch</a><span class="by">The Guardian · 02/02/2023</span></li>
+      <li><a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners (GPT-3)</a><span class="by">Brown et al. (OpenAI) · arXiv · 2020</span><span class="why">GPT-3: 175 bilhões de parâmetros.</span></li>
+      <li><a href="https://www.cnbc.com/2026/04/24/deepseek-v4-llm-preview-open-source-ai-competition-china.html">China's DeepSeek releases preview of long-awaited V4 model as AI race intensifies</a><span class="by">CNBC · 24/04/2026</span><span class="why">DeepSeek V4 Pro: 1,6 trilhão de parâmetros (≈49 bilhões ativos por vez).</span></li>
+      <li><a href="https://ai.meta.com/blog/meta-llama-3/">Introducing Meta Llama 3</a><span class="by">Meta AI · abr/2024</span><span class="why">Treinado com mais de 15 trilhões de tokens.</span></li>
+      <li><a href="https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference">How much energy does Google's AI use? We did the math</a><span class="by">Google Cloud Blog · ago/2025</span><span class="why">≈0,24 Wh e ≈0,26 mL de água por pergunta típica ao Gemini.</span></li>
+      <li><a href="https://www.technologyreview.com/2025/08/21/1122288/google.gemini.ai.energy/">In a first, Google has released data on how much energy an AI prompt uses</a><span class="by">MIT Technology Review · 21/08/2025</span></li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000073/q2fy27pr.htm">NVIDIA Announces Financial Results for Second Quarter Fiscal 2027</a><span class="by">NVIDIA (via SEC) · 26/08/2026</span><span class="why">A NVIDIA faz a maior parte dos chips de IA.</span></li>
+    </ul>
+  </details>
+
+  <details class="src">
+    <summary>Como um LLM pensa <span class="count">12</span></summary>
+    <ul class="srclist">
+      <li><a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them">Understanding and counting tokens</a><span class="by">OpenAI Help Center</span><span class="why">Em inglês, 100 tokens ≈ 75 palavras.</span></li>
+      <li><a href="https://arxiv.org/abs/1301.3781">Efficient Estimation of Word Representations in Vector Space (Word2Vec)</a><span class="by">Mikolov et al. (Google) · arXiv · 2013</span><span class="why">O exemplo rei − homem + mulher ≈ rainha.</span></li>
+      <li><a href="https://arxiv.org/abs/2203.02155">Training language models to follow instructions with human feedback</a><span class="by">Ouyang et al. (OpenAI) · arXiv · 2022</span><span class="why">As fases de instruções e feedback humano (RLHF).</span></li>
+      <li><a href="https://pt.wikipedia.org/wiki/Marcos_Pontes">Marcos Pontes</a><span class="by">Wikipédia</span><span class="why">1º astronauta brasileiro: foi à Estação Espacial Internacional em 2006, não à Lua. (A resposta errada do slide foi montada para a aula.)</span></li>
+      <li><span>Poema A: Olavo Bilac, soneto XIII de "Via Láctea", do livro <cite>Poesias</cite></span><span class="by">1888 · domínio público</span><span class="why">O poema B foi escrito por IA, no mesmo estilo.</span></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:046_Capybara_by_the_river_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg">Capybara by the river in Encontro das Águas State Park</a><span class="by">Foto de Giles Laurent · Wikimedia Commons · licença <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br">CC BY-SA 4.0</a></span><span class="why">A foto real do quiz "Qual foto é de verdade?". A outra imagem foi gerada por IA (Gemini).</span></li>
+      <li><a href="https://techcrunch.com/2026/02/27/chatgpt-reaches-900m-weekly-active-users/">ChatGPT reaches 900M weekly active users</a><span class="by">TechCrunch · 27/02/2026</span></li>
+      <li><a href="https://blog.google/innovation-and-ai/products/gemini-app/one-billion-monthly-users/">Google's Gemini app hits 1 billion monthly active users</a><span class="by">Google · 11/08/2026</span></li>
+      <li><a href="https://openai.com/pt-BR/index/expanding-our-presence-in-brazil/">Ampliando a presença da OpenAI no Brasil</a><span class="by">OpenAI · 27/08/2026</span><span class="why">Brasil no top 3 do ChatGPT: ≈215 milhões de mensagens por dia.</span></li>
+      <li><a href="https://forbes.com.br/forbes-tech/2026/08/openai-anuncia-primeira-operacao-comercial-no-brasil/">OpenAI anuncia primeira operação comercial no Brasil</a><span class="by">Forbes Brasil · ago/2026</span></li>
+      <li><a href="https://www.cnbc.com/2026/04/24/nvidia-stock-closes-at-record-pushing-market-cap-past-5-trillion.html">Nvidia stock closes at record, pushing market cap past $5 trillion</a><span class="by">CNBC · 24/04/2026</span></li>
+      <li><a href="https://www.anthropic.com/legal/consumer-terms">Consumer Terms of Service</a><span class="by">Anthropic</span><span class="why">O Claude é só para maiores de 18 anos.</span></li>
+    </ul>
+  </details>
+
+  <details class="src">
+    <summary>Mão na massa <span class="count">4</span></summary>
+    <ul class="srclist">
+      <li><a href="https://www.ypulse.com/newsfeed/2025/06/12/a-teen-allegedly-created-the-viral-grow-a-garden-game-on-roblox-and-young-gamers-are-loving-it/">A teen allegedly created the viral "Grow a Garden" game on Roblox</a><span class="by">YPulse · 12/06/2025</span><span class="why">A idade do criador não foi confirmada oficialmente.</span></li>
+      <li><a href="https://games.gg/pt-BR/news/roblox-grow-a-garden-atinge-16-milhoes-de-ccus/">Roblox Grow a Garden atinge 16 milhões de CCUs</a><span class="by">games.gg · 2025</span></li>
+      <li><a href="https://about.roblox.com/newsroom/2026/04/roblox-studio-going-agentic">Roblox Studio is Going Agentic</a><span class="by">Roblox · abr/2026</span></li>
+      <li><a href="https://create.roblox.com/docs/en-us/studio/mcp.md">Studio MCP server</a><span class="by">Roblox Creator Hub (documentação)</span><span class="why">Como o Claude Code se conecta ao Roblox Studio.</span></li>
+    </ul>
+  </details>
+
+  <details class="src">
+    <summary>E o futuro? <span class="count">11</span></summary>
+    <ul class="srclist">
+      <li><a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent">Generative AI could raise global GDP by 7%</a><span class="by">Goldman Sachs · mar/2023</span><span class="why">O gráfico de % do emprego exposto à IA por área (EUA).</span></li>
+      <li><a href="https://www.visualcapitalist.com/sp/ranking-industries-by-their-potential-for-ai-automation/">Ranking Industries by Their Potential for AI Automation</a><span class="by">Visual Capitalist · 2023 · dados da Goldman Sachs</span></li>
+      <li><a href="https://www-ak-ms.foxbusiness.com/technology/two-thirds-us-jobs-exposed-ai-driven-automation-goldman-sachs">Two-thirds of US jobs could be exposed to AI-driven automation: Goldman Sachs</a><span class="by">Fox Business · mar/2023</span></li>
+      <li><a href="https://www.imf.org/en/Publications/Staff-Discussion-Notes/Issues/2024/01/14/Gen-AI-Artificial-Intelligence-and-the-Future-of-Work-542379">Gen-AI: Artificial Intelligence and the Future of Work</a><span class="by">FMI · 14/01/2024</span><span class="why">≈40% dos empregos do mundo são afetados pela IA.</span></li>
+      <li><a href="https://www.anthropic.com/research/labor-market-impacts">Labor market impacts of AI: A new measure and early evidence</a><span class="by">Anthropic · 05/03/2026</span><span class="why">Programadores já usam IA em ≈75% das tarefas; cozinheiros e mecânicos, perto de 0%.</span></li>
+      <li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">The Future of Jobs Report 2025</a><span class="by">Fórum Econômico Mundial · jan/2025</span><span class="why">170 mi de empregos novos, 92 mi que deixam de existir, 39% das habilidades mudam até 2030.</span></li>
+      <li><a href="https://www.weforum.org/stories/2025/01/future-of-jobs-report-2025-jobs-of-the-future-and-the-skills-you-need-to-get-them/">Future of Jobs Report 2025: The jobs of the future – and the skills you need to get them</a><span class="by">Fórum Econômico Mundial · jan/2025</span></li>
+      <li><a href="https://digital-skills-jobs.europa.eu/en/latest/news/these-are-10-fastest-growing-and-falling-jobs-2030">These are the 10 fastest growing and falling jobs by 2030</a><span class="by">Digital Skills and Jobs Platform (União Europeia) · 2025</span></li>
+      <li><a href="https://www.mckinsey.com/mgi/our-research/generative-ai-and-the-future-of-work-in-america">Generative AI and the future of work in America</a><span class="by">McKinsey Global Institute · jul/2023</span><span class="why">Até 30% das horas de trabalho nos EUA podem ser automatizadas até 2030.</span></li>
+      <li><a href="https://www.computerweekly.com/br/reportagen/Vagas-que-exigem-competencias-em-IA-quase-triplicam-no-Brasil">Vagas que exigem competências em IA quase triplicam no Brasil</a><span class="by">Computer Weekly Brasil · 18/08/2026 · dados da PwC</span></li>
+      <li><a href="https://w3techs.com/technologies/overview/content_language">Usage Statistics of Content Languages for Websites</a><span class="by">W3Techs · out/2026</span><span class="why">≈50% dos sites em inglês; português, perto de 4%.</span></li>
+    </ul>
+  </details>
+
+  <details class="src">
+    <summary>Usar com responsabilidade <span class="count">8</span></summary>
+    <ul class="srclist">
+      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15123.htm">Lei nº 15.123/2025</a><span class="by">Planalto · 2025</span><span class="why">Aumenta a pena da violência psicológica contra a mulher quando é feita com IA.</span></li>
+      <li><a href="https://ibdfam.org.br/noticias/12826/Lei+que+agrava+crime+contra+mulher+com+uso+de+IA+%C3%A9+sancionada">Lei que agrava crime contra mulher com uso de IA é sancionada</a><span class="by">IBDFAM · 2025</span></li>
+      <li><a href="https://www.tecmundo.com.br/seguranca/412439-deepfakes-sexuais-em-escolas-16-vitimas-no-brasil-e-mais-de-600-pelo-mundo.htm">Deepfakes sexuais em escolas: 16 vítimas no Brasil e mais de 600 pelo mundo</a><span class="by">TecMundo / Estadão</span><span class="why">Já houve casos em escolas brasileiras.</span></li>
+      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15211.htm">Lei nº 15.211/2025 (ECA Digital)</a><span class="by">Planalto · 2025 · em vigor desde 17/03/2026</span></li>
+      <li><a href="https://www.poder360.com.br/poder-governo/eca-digital-entra-em-vigor-nesta-3a-feira-entenda-o-que-muda/">ECA Digital entra em vigor nesta 3ª feira; entenda o que muda</a><span class="by">Poder360 · 17/03/2026</span></li>
+      <li><a href="https://openai.com/index/our-approach-to-age-prediction/">Rolling out age prediction</a><span class="by">OpenAI · 2026</span><span class="why">Regras de idade do ChatGPT (13+ com autorização dos responsáveis).</span></li>
+      <li><a href="https://forbes.com.br/forbes-tech/2026/04/openai-escolhe-o-brasil-para-lancar-seu-primeiro-guia-de-uso-de-ia-para-adolescentes-entenda/">OpenAI escolhe o Brasil para lançar seu primeiro guia de uso de IA para adolescentes</a><span class="by">Forbes Brasil · abr/2026</span></li>
+      <li><a href="https://new.safernet.org.br/">SaferNet Brasil</a><span class="by">ONG de denúncia e ajuda</span></li>
+    </ul>
+  </details>
+
+  <details class="src">
+    <summary>O universo da IA <span class="count">5</span></summary>
+    <ul class="srclist">
+      <li><a href="https://www.nobelprize.org/prizes/chemistry/2024/press-release/">The Nobel Prize in Chemistry 2024: press release</a><span class="by">NobelPrize.org · 09/10/2024</span><span class="why">AlphaFold: Hassabis e Jumper (Google DeepMind), junto com David Baker.</span></li>
+      <li><a href="https://rfpose.csail.mit.edu/">Through-Wall Human Pose Estimation Using Radio Signals (RF-Pose)</a><span class="by">MIT CSAIL · 2018</span></li>
+      <li><a href="https://arxiv.org/abs/2301.00250">DensePose From WiFi</a><span class="by">Carnegie Mellon University · arXiv · dez/2022</span><span class="why">Ainda é pesquisa e erra bastante.</span></li>
+      <li><a href="https://waymo.com/">Waymo</a><span class="by">site oficial</span><span class="why">Robotáxis sem motorista em cidades dos EUA.</span></li>
+      <li><a href="https://news.utexas.edu/2023/05/01/brain-activity-decoder-can-reveal-stories-in-peoples-minds/">Brain Activity Decoder Can Reveal Stories in People's Minds</a><span class="by">Universidade do Texas em Austin · 01/05/2023</span><span class="why">Só funciona com a pessoa colaborando e depois de horas de treino.</span></li>
+    </ul>
+  </details>
+
+  <details class="src">
+    <summary>Pesquisa de apoio <span class="count">18</span></summary>
+    <ul class="srclist">
+      <li><a href="https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/">How Teens Use and View AI</a><span class="by">Pew Research Center · 24/02/2026</span></li>
+      <li><a href="https://arxiv.org/abs/2507.07935">Working with AI: Measuring the Applicability of Generative AI to Occupations</a><span class="by">Microsoft Research · arXiv · 2025</span></li>
+      <li><a href="https://www.anthropic.com/research/anthropic-economic-index-september-2025-report">Economic Index: Uneven AI adoption</a><span class="by">Anthropic · set/2025</span></li>
+      <li><a href="https://www.anthropic.com/research/economic-index-june-2026-report">Anthropic Economic Index report: Cadences</a><span class="by">Anthropic · jun/2026</span></li>
+      <li><a href="https://www.mckinsey.com/mgi/our-research/agents-robots-and-us-skill-partnerships-in-the-age-of-ai">Agents, robots, and us: Skill partnerships in the age of AI</a><span class="by">McKinsey Global Institute · nov/2025</span></li>
+      <li><a href="https://epoch.ai/trends">Trends in AI</a><span class="by">Epoch AI · 2026</span></li>
+      <li><a href="https://inside.fifa.com/innovation/news/offside-decisions-referee-body-cams-innovation-world-cup-2026">How innovation is elevating the FIFA World Cup 2026</a><span class="by">FIFA · 2026</span></li>
+      <li><a href="https://about.roblox.com/pt-br/newsroom/2026/01/roblox-age-checks-required-to-chat">Verificação de idade obrigatória para conversar no Roblox</a><span class="by">Roblox · jan/2026</span></li>
+      <li><a href="https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/">Roblox launches an AI-powered game-creation feature in its mobile app</a><span class="by">TechCrunch · 16/07/2026</span></li>
+      <li><a href="https://techcrunch.com/2026/06/16/chatgpts-market-share-slips-below-50-for-first-time/">ChatGPT's market share slips below 50% for first time</a><span class="by">TechCrunch · 16/06/2026</span></li>
+      <li><a href="https://teletime.com.br/07/07/2026/tic-33-mil-vagas-formais-2026-brasscom/">Brasscom estima 33 mil vagas formais em TIC em 2026</a><span class="by">Teletime · 07/07/2026</span></li>
+      <li><a href="https://blog.pensarcursos.com.br/mercado-de-trabalho-vagas-ligadas-a-inteligencia-artificial-disparam-no-brasil-mostra-infojobs/">Vagas ligadas à inteligência artificial disparam no Brasil, mostra Infojobs</a><span class="by">Pensar Cursos · 2026</span></li>
+      <li><a href="https://www.oniabrasil.com.br/">ONIA: Olimpíada Nacional de Inteligência Artificial</a><span class="by">site oficial</span></li>
+      <li><a href="https://olimpiadadeia.ceia.digital/">Olimpíada de IA Aplicada</a><span class="by">CEIA-UFG</span></li>
+      <li><a href="https://www.cnnbrasil.com.br/eleicoes/uso-de-ia-e-riscos-da-desinformacao-pautam-regras-para-eleicoes-de-2026/">Uso de IA e riscos da desinformação pautam regras para eleições de 2026</a><span class="by">CNN Brasil · 2026</span></li>
+      <li><a href="https://www25.senado.leg.br/web/atividade/materias/-/materia/157233">PL 2338/2023 (Marco Legal da IA)</a><span class="by">Senado Federal</span></li>
+      <li><a href="https://artificialintelligenceact.eu/ai-act-explorer/digital-omnibus/">Digital Omnibus on AI</a><span class="by">EU Artificial Intelligence Act · 2026</span></li>
+      <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15100.htm">Lei nº 15.100/2025 (celular nas escolas)</a><span class="by">Planalto · 2025</span></li>
+    </ul>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Inteligência Artificial. Na prática.</strong> · Daniel Nabarrete · 22/10/2026</p>
+    <p>Esta página não usa cookies, não tem rastreadores e não coleta nenhum dado de quem visita. Os links levam a sites de outras pessoas e empresas, cada um com as próprias regras.</p>
+    <p>Foto do quiz: "Capybara by the river in Encontro das Águas State Park", de Giles Laurent, <a href="https://commons.wikimedia.org/wiki/File:046_Capybara_by_the_river_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br">CC BY-SA 4.0</a>. A outra imagem do quiz foi gerada por IA (Gemini).</p>
+    <p>Fontes tipográficas Nunito, Inter e JetBrains Mono (licença SIL Open Font License, arquivos em <code>fonts/</code>). Feita com IA, dirigida por um humano.</p>
+  </div>
+</footer>
+
+<script>
+  // Se a captura de um slide ainda não existir, mostra um aviso no lugar da imagem quebrada.
+  document.querySelectorAll('.slide img').forEach(function (img) {
+    function fallback() {
+      var ph = document.createElement('div');
+      ph.className = 'ph';
+      ph.textContent = 'Imagem do slide em breve';
+      img.replaceWith(ph);
+    }
+    if (img.complete && img.naturalWidth === 0) fallback();
+    else img.addEventListener('error', fallback);
+  });
+</script>
+</body>
+</html>
